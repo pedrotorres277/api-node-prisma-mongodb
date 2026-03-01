@@ -14,6 +14,11 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.static(path.join(__dirname, "frontend")));
 
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "frontend", "index.html"));
+});
+
+
 // acessar o frontend sem precisar rodar o frentend separadamente
 
 app.use(express.json());
