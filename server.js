@@ -12,11 +12,12 @@ const prisma = new PrismaClient();
 const app = express();
 const PORT = process.env.PORT || 3000;
 app.use(cors());
-app.use(express.static(path.join(__dirname, "frontend")));
+app.use(express.static("frontend"));
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "frontend", "index.html"));
+    res.sendFile(path.resolve("frontend/index.html"));
 });
+
 
 
 // acessar o frontend sem precisar rodar o frentend separadamente
